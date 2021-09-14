@@ -324,7 +324,7 @@ import {
   TransitionChild,
   TransitionRoot,
 } from '@headlessui/vue'
-import { ClockIcon, HomeIcon, InboxIcon, MenuAlt1Icon, ViewListIcon, XIcon } from '@heroicons/vue/solid'
+import { ClockIcon, HomeIcon, InboxIcon, MenuAlt1Icon, SunIcon, UserIcon, ViewListIcon, XIcon } from '@heroicons/vue/solid'
 import {
   ChevronRightIcon,
   DotsVerticalIcon,
@@ -341,8 +341,8 @@ const navigation = [
   { name: 'Search', href: '#', icon: SearchIcon, current: true },
   { name: 'Roadmap', href: '#', icon: MapIcon, current: false },
   { name: 'Insights', href: '#', icon: InboxIcon, current: false },
-  { name: 'People', href: '#', icon: ClockIcon, current: false },
-  { name: 'Portal', href: '#', icon: ClockIcon, current: false },
+  { name: 'People', href: '#', icon: UserIcon, current: false },
+  { name: 'Portal', href: '#', icon: SunIcon, current: false },
 ]
 
 const projects = [
