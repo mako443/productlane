@@ -1,19 +1,3 @@
-<!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
 <template>
   <div class="relative h-screen flex overflow-hidden bg-white">
     <TransitionRoot as="template" :show="sidebarOpen">
@@ -25,20 +9,20 @@
           <div class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-white">
             <TransitionChild as="template" enter="ease-in-out duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in-out duration-300" leave-from="opacity-100" leave-to="opacity-0">
               <div class="absolute top-0 right-0 -mr-12 pt-2">
-                <button type="button" class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" @click="sidebarOpen = false">
+                <button type="button" class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-inset focus:ring-white" @click="sidebarOpen = false">
                   <span class="sr-only">Close sidebar</span>
-                  <XIcon class="h-6 w-6 text-white" aria-hidden="true" />
+                  <XIcon class="h-4 w-4 text-white" aria-hidden="true" />
                 </button>
               </div>
             </TransitionChild>
             <div class="flex-shrink-0 flex items-center px-4">
-              <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-purple-500-mark-gray-700-text.svg" alt="Workflow" />
+              <img class="h-5 px-1 w-auto" src="../assets/logo.svg" alt="Workflow" />
             </div>
             <div class="mt-5 flex-1 h-0 overflow-y-auto">
               <nav class="px-2">
                 <div class="space-y-1">
                   <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-white text-gray-900' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50', 'group flex items-center px-2 py-2 text-base leading-5 font-medium rounded-md']" :aria-current="item.current ? 'page' : undefined">
-                    <component :is="item.icon" :class="[item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500', 'mr-3 flex-shrink-0 h-6 w-6']" aria-hidden="true" />
+                    <component :is="item.icon" :class="[item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500', 'mr-3 flex-shrink-0 h-5 px-1 w-6']" aria-hidden="true" />
                     {{ item.name }}
                   </a>
                 </div>
@@ -54,22 +38,33 @@
 
     <!-- Static sidebar for desktop -->
     <div class="hidden lg:flex lg:flex-shrink-0">
-      <div class="flex flex-col w-64 border-r border-gray-200 pt-5 pb-4 bg-white">
-        <div class="flex items-center flex-shrink-0 px-6">
-          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-purple-500-mark-gray-700-text.svg" alt="Workflow" />
+      <div class="flex flex-col w-56 border-r border-gray-200 pt-5 pb-4 bg-white">
+        <div class="flex items-center flex-shrink-0 px-4">
+          <img class="h-5 px-1 w-auto" src="../assets/logo.svg" alt="Workflow" />
         </div>
         <!-- Sidebar component, swap this element with another sidebar if you like -->
         <div class="h-0 flex-1 flex flex-col overflow-y-auto">
+          <!-- Navigation -->
+          <nav class="px-3 mt-6">
+            <div class="space-y-1">
+              <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50', 'group flex items-center px-2 py-2 text-sm font-medium rounded-md']" :aria-current="item.current ? 'page' : undefined">
+                <component :is="item.icon" :class="[item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500', 'mr-3 flex-shrink-0 h-5 w-5']" aria-hidden="true" />
+                {{ item.name }}
+              </a>
+            </div>
+          </nav>
+          <div class="h-full">
+          </div>
           <!-- User account dropdown -->
           <Menu as="div" class="px-3 mt-6 relative inline-block text-left">
             <div>
-              <MenuButton class="group w-full bg-white rounded-md px-3.5 py-2 text-sm text-left font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-purple-500">
+              <MenuButton class="group w-full bg-white rounded-md px-2 py-2 text-sm text-left font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-green-500">
                 <span class="flex w-full justify-between items-center">
                   <span class="flex min-w-0 items-center justify-between space-x-3">
                     <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="" />
                     <span class="flex-1 flex flex-col min-w-0">
-                      <span class="text-gray-900 text-sm font-medium truncate">Jessy Schwarz</span>
-                      <span class="text-gray-500 text-sm truncate">@jessyschwarz</span>
+                      <span class="text-gray-900 text-sm font-medium truncate">Raphael Fleckenstein</span>
+                      <span class="text-gray-500 text-sm truncate">raphael@zavvy.io</span>
                     </span>
                   </span>
                   <SelectorIcon class="flex-shrink-0 h-5 w-5 text-gray-400 group-hover:text-gray-500" aria-hidden="true" />
@@ -105,15 +100,6 @@
               </MenuItems>
             </transition>
           </Menu>
-          <!-- Navigation -->
-          <nav class="px-3 mt-6">
-            <div class="space-y-1">
-              <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-200 text-gray-900' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50', 'group flex items-center px-2 py-2 text-sm font-medium rounded-md']" :aria-current="item.current ? 'page' : undefined">
-                <component :is="item.icon" :class="[item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500', 'mr-3 flex-shrink-0 h-6 w-6']" aria-hidden="true" />
-                {{ item.name }}
-              </a>
-            </div>
-          </nav>
         </div>
       </div>
     </div>
@@ -121,7 +107,7 @@
     <div class="flex flex-col w-0 flex-1 overflow-hidden">
       <!-- Search header -->
       <div class="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:hidden">
-        <button type="button" class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 lg:hidden" @click="sidebarOpen = true">
+        <button type="button" class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-inset focus:ring-green-500 lg:hidden" @click="sidebarOpen = true">
           <span class="sr-only">Open sidebar</span>
           <MenuAlt1Icon class="h-6 w-6" aria-hidden="true" />
         </button>
@@ -141,7 +127,7 @@
             <!-- Profile dropdown -->
             <Menu as="div" class="ml-3 relative">
               <div>
-                <MenuButton class="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                <MenuButton class="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-offset-2 focus:ring-green-500">
                   <span class="sr-only">Open user menu</span>
                   <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
                 </MenuButton>
@@ -187,10 +173,7 @@
             </h1>
           </div>
           <div class="mt-4 flex sm:mt-0 sm:ml-4">
-            <button type="button" class="order-1 ml-3 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-0 sm:ml-0">
-              Share
-            </button>
-            <button type="button" class="order-0 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-1 sm:ml-3">
+            <button type="button" class="order-0 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-offset-2 focus:ring-green-500 sm:order-1 sm:ml-3">
               Create
             </button>
           </div>
@@ -200,7 +183,7 @@
         <!-- Projects list (only on smallest breakpoint) -->
         <div class="mt-10 sm:hidden">
           <div class="px-4 sm:px-6">
-            <h2 class="text-gray-500 text-xs font-medium uppercase tracking-wide">Projects</h2>
+            <h2 class="text-gray-500 text-xs font-medium">Projects</h2>
           </div>
           <ul role="list" class="mt-3 border-t border-gray-200 divide-y divide-gray-100">
             <li v-for="project in projects" :key="project.id">
@@ -225,16 +208,16 @@
             <table class="min-w-full">
               <thead>
                 <tr>
-                  <th class="px-6 py-3 border-b border-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th class="px-6 py-3 border-b border-gray-200 text-left text-xs font-medium text-gray-500">
                     <span class="lg:pl-2">Project</span>
                   </th>
-                  <th class="px-6 py-3 border-b border-gray-200 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th class="px-6 py-3 border-b border-gray-200 text-left text-xs font-medium text-gray-500">
                     Members
                   </th>
-                  <th class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th class="hidden md:table-cell px-6 py-3 border-b border-gray-200 text-right text-xs font-medium text-gray-500">
                     Last updated
                   </th>
-                  <th class="pr-6 py-3 border-b border-gray-200 text-right text-xs font-medium text-gray-500 uppercase tracking-wider" />
+                  <th class="pr-6 py-3 border-b border-gray-200 text-right text-xs font-medium text-gray-500" />
                 </tr>
               </thead>
               <tbody class="bg-white divide-y divide-gray-100">
@@ -263,8 +246,8 @@
                     {{ project.lastUpdated }}
                   </td>
                   <td class="pr-6">
-                    <Menu as="div" class="relative flex justify-end items-center">
-                      <MenuButton class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                    <Menu as="div" class="relative flex items-center">
+                      <MenuButton class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-offset-2 focus:ring-green-500">
                         <span class="sr-only">Open options</span>
                         <DotsVerticalIcon class="w-5 h-5" aria-hidden="true" />
                       </MenuButton>
@@ -338,8 +321,8 @@ import {
 } from '@heroicons/vue/solid'
 
 const navigation = [
-  { name: 'Search', href: '#', icon: SearchIcon, current: true },
-  { name: 'Roadmap', href: '#', icon: MapIcon, current: false },
+  { name: 'Search', href: '#', icon: SearchIcon, current: false },
+  { name: 'Roadmap', href: '#', icon: MapIcon, current: true },
   { name: 'Insights', href: '#', icon: InboxIcon, current: false },
   { name: 'People', href: '#', icon: UserIcon, current: false },
   { name: 'Portal', href: '#', icon: SunIcon, current: false },
@@ -348,7 +331,7 @@ const navigation = [
 const projects = [
   {
     id: 1,
-    title: 'GraphQL API',
+    title: 'Microsoft Teams',
     initials: 'GA',
     team: 'Engineering',
     members: [
@@ -380,7 +363,79 @@ const projects = [
     totalMembers: 12,
     lastUpdated: 'March 17, 2020',
     pinned: true,
-    bgColorClass: 'bg-pink-600',
+    bgColorClass: 'bg-green-600',
+  },
+  {
+    id: 1,
+    title: 'Repeating Journeys',
+    initials: 'GA',
+    team: 'Engineering',
+    members: [
+      {
+        name: 'Dries Vincent',
+        handle: 'driesvincent',
+        imageUrl:
+          'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      },
+      {
+        name: 'Lindsay Walton',
+        handle: 'lindsaywalton',
+        imageUrl:
+          'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      },
+      {
+        name: 'Courtney Henry',
+        handle: 'courtneyhenry',
+        imageUrl:
+          'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      },
+      {
+        name: 'Tom Cook',
+        handle: 'tomcook',
+        imageUrl:
+          'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      },
+    ],
+    totalMembers: 12,
+    lastUpdated: 'March 17, 2020',
+    pinned: true,
+    bgColorClass: 'bg-green-600',
+  },
+  {
+    id: 1,
+    title: 'German Language',
+    initials: 'GA',
+    team: 'Engineering',
+    members: [
+      {
+        name: 'Dries Vincent',
+        handle: 'driesvincent',
+        imageUrl:
+          'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      },
+      {
+        name: 'Lindsay Walton',
+        handle: 'lindsaywalton',
+        imageUrl:
+          'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      },
+      {
+        name: 'Courtney Henry',
+        handle: 'courtneyhenry',
+        imageUrl:
+          'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      },
+      {
+        name: 'Tom Cook',
+        handle: 'tomcook',
+        imageUrl:
+          'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      },
+    ],
+    totalMembers: 12,
+    lastUpdated: 'March 17, 2020',
+    pinned: true,
+    bgColorClass: 'bg-green-600',
   },
   // More projects...
 ]
