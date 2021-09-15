@@ -16,8 +16,9 @@
               </div>
             </TransitionChild>
             <div class="flex-shrink-0 flex items-center px-4">
-              <img class="h-5 px-1 w-auto dark:hidden" src="../assets/logo.svg" alt="Workflow" />
-              <img class="h-5 px-1 w-auto hidden dark:block" src="../assets/logo-dark.svg" alt="Workflow" />
+              <img class="h-4 px-1 w-auto dark:hidden" src="../assets/logo-icon.svg" alt="Workflow" />
+              <img class="h-4 px-1 w-auto hidden dark:block" src="../assets/logo-icon.svg" alt="Workflow" />
+              <p class="dark:text-white">Productlane</p>
             </div>
             <div class="mt-5 flex-1 h-0 overflow-y-auto">
               <nav class="px-2">
@@ -41,8 +42,9 @@
     <div class="hidden lg:flex lg:flex-shrink-0">
       <div class="flex flex-col w-64 border-r border-gray-200 dark:border-gray-800 pt-5 pb-4 bg-white dark:bg-gray-900">
         <div class="flex items-center flex-shrink-0 px-4">
-          <img class="h-5 px-1 w-auto dark:hidden" src="../assets/logo.svg" alt="Workflow" />
-          <img class="h-5 px-1 w-auto hidden dark:block" src="../assets/logo-dark.svg" alt="Workflow" />
+          <img class="h-4 px-1 w-auto dark:hidden" src="../assets/logo-icon.svg" alt="Workflow" />
+          <img class="h-4 px-1 w-auto hidden dark:block" src="../assets/logo-icon.svg" alt="Workflow" />
+          <p class="dark:text-white">Productlane</p>
         </div>
         <!-- Sidebar component, swap this element with another sidebar if you like -->
         <div class="h-0 flex-1 flex flex-col overflow-y-auto">
