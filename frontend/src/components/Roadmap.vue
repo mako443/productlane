@@ -311,8 +311,8 @@ import {
 
 const navigation = [
   { name: 'Search', href: '#', icon: SearchIcon, current: false },
-  { name: 'Roadmap', href: '#', icon: MapIcon, current: true },
-  { name: 'Insights', href: '#', icon: InboxIcon, current: false },
+  { name: 'Roadmap', href: '/', icon: MapIcon, current: true },
+  { name: 'Insights', href: '/insights', icon: InboxIcon, current: false },
   { name: 'People', href: '#', icon: UserIcon, current: false },
   { name: 'Portal', href: '#', icon: SunIcon, current: false },
 ]
